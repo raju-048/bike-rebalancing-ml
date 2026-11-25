@@ -1,0 +1,267 @@
+{
+  "model_interval_minutes": 60,
+  "weather_used": true,
+  "feature_columns": [
+    "cos_dow",
+    "cos_doy",
+    "cos_hour",
+    "day_of_week",
+    "dropoff_how_mean_4w",
+    "dropoff_lag_1",
+    "dropoff_lag_1d",
+    "dropoff_lag_1w",
+    "dropoff_lag_2",
+    "dropoff_lag_3",
+    "dropoff_mean_24h",
+    "dropoff_mean_28d",
+    "dropoff_mean_3h",
+    "hour",
+    "humidity",
+    "is_holiday",
+    "is_rainy",
+    "is_weekend",
+    "is_workday",
+    "lat",
+    "lng",
+    "month",
+    "net_lag_1",
+    "net_mean_24h",
+    "pickup_how_mean_4w",
+    "pickup_lag_1",
+    "pickup_lag_1d",
+    "pickup_lag_1w",
+    "pickup_lag_2",
+    "pickup_lag_3",
+    "pickup_mean_24h",
+    "pickup_mean_28d",
+    "pickup_mean_3h",
+    "precip_prev_3h",
+    "precipitation",
+    "sin_dow",
+    "sin_doy",
+    "sin_hour",
+    "temperature",
+    "weather_code",
+    "wind_speed"
+  ],
+  "n_features": 41,
+  "months": [
+    {
+      "month": "2022-01",
+      "rows": 1133856,
+      "stations": 1524,
+      "rows_with_nan_features": 256032,
+      "pickups": 1017428.0,
+      "dropoffs": 1015192.0,
+      "mb": 18.6
+    },
+    {
+      "month": "2022-02",
+      "rows": 1033536,
+      "stations": 1538,
+      "rows_with_nan_features": 0,
+      "pickups": 1196019.0,
+      "dropoffs": 1194966.0,
+      "mb": 13.7
+    },
+    {
+      "month": "2022-03",
+      "rows": 1147192,
+      "stations": 1544,
+      "rows_with_nan_features": 0,
+      "pickups": 1844253.0,
+      "dropoffs": 1843984.0,
+      "mb": 18.3
+    },
+    {
+      "month": "2022-04",
+      "rows": 1113120,
+      "stations": 1546,
+      "rows_with_nan_features": 0,
+      "pickups": 2259061.0,
+      "dropoffs": 2258298.0,
+      "mb": 17.9
+    },
+    {
+      "month": "2022-05",
+      "rows": 1155432,
+      "stations": 1553,
+      "rows_with_nan_features": 0,
+      "pickups": 2862018.0,
+      "dropoffs": 2861237.0,
+      "mb": 20.0
+    },
+    {
+      "month": "2022-06",
+      "rows": 1127520,
+      "stations": 1566,
+      "rows_with_nan_features": 0,
+      "pickups": 3339893.0,
+      "dropoffs": 3337283.0,
+      "mb": 20.6
+    },
+    {
+      "month": "2022-07",
+      "rows": 1177752,
+      "stations": 1583,
+      "rows_with_nan_features": 0,
+      "pickups": 3393169.0,
+      "dropoffs": 3388441.0,
+      "mb": 21.8
+    },
+    {
+      "month": "2022-08",
+      "rows": 1185936,
+      "stations": 1594,
+      "rows_with_nan_features": 0,
+      "pickups": 3571381.0,
+      "dropoffs": 3565448.0,
+      "mb": 22.3
+    },
+    {
+      "month": "2022-09",
+      "rows": 1176480,
+      "stations": 1634,
+      "rows_with_nan_features": 0,
+      "pickups": 3407655.0,
+      "dropoffs": 3403924.0,
+      "mb": 21.2
+    },
+    {
+      "month": "2022-10",
+      "rows": 1222392,
+      "stations": 1643,
+      "rows_with_nan_features": 0,
+      "pickups": 2932951.0,
+      "dropoffs": 2930058.0,
+      "mb": 21.2
+    },
+    {
+      "month": "2022-11",
+      "rows": 1205512,
+      "stations": 1672,
+      "rows_with_nan_features": 0,
+      "pickups": 2384044.0,
+      "dropoffs": 2380205.0,
+      "mb": 21.2
+    },
+    {
+      "month": "2022-12",
+      "rows": 1260336,
+      "stations": 1694,
+      "rows_with_nan_features": 0,
+      "pickups": 1590452.0,
+      "dropoffs": 1587222.0,
+      "mb": 18.0
+    },
+    {
+      "month": "2023-01",
+      "rows": 1352592,
+      "stations": 1818,
+      "rows_with_nan_features": 0,
+      "pickups": 1793666.0,
+      "dropoffs": 1790940.0,
+      "mb": 18.9
+    },
+    {
+      "month": "2023-02",
+      "rows": 1257984,
+      "stations": 1872,
+      "rows_with_nan_features": 0,
+      "pickups": 1694749.0,
+      "dropoffs": 1691840.0,
+      "mb": 17.7
+    },
+    {
+      "month": "2023-03",
+      "rows": 1412443,
+      "stations": 1901,
+      "rows_with_nan_features": 0,
+      "pickups": 2117603.0,
+      "dropoffs": 2113817.0,
+      "mb": 22.2
+    },
+    {
+      "month": "2023-04",
+      "rows": 1379520,
+      "stations": 1916,
+      "rows_with_nan_features": 0,
+      "pickups": 2746948.0,
+      "dropoffs": 2742796.0,
+      "mb": 22.4
+    },
+    {
+      "month": "2023-05",
+      "rows": 1429224,
+      "stations": 1921,
+      "rows_with_nan_features": 0,
+      "pickups": 3450368.0,
+      "dropoffs": 3445231.0,
+      "mb": 24.7
+    },
+    {
+      "month": "2023-06",
+      "rows": 1396080,
+      "stations": 1939,
+      "rows_with_nan_features": 0,
+      "pickups": 3447381.0,
+      "dropoffs": 3443615.0,
+      "mb": 24.9
+    },
+    {
+      "month": "2023-07",
+      "rows": 1482792,
+      "stations": 1993,
+      "rows_with_nan_features": 0,
+      "pickups": 3655189.0,
+      "dropoffs": 3650766.0,
+      "mb": 26.1
+    },
+    {
+      "month": "2023-08",
+      "rows": 1509576,
+      "stations": 2029,
+      "rows_with_nan_features": 0,
+      "pickups": 3959981.0,
+      "dropoffs": 3954574.0,
+      "mb": 27.2
+    },
+    {
+      "month": "2023-09",
+      "rows": 1496880,
+      "stations": 2079,
+      "rows_with_nan_features": 0,
+      "pickups": 3465277.0,
+      "dropoffs": 3457637.0,
+      "mb": 25.3
+    },
+    {
+      "month": "2023-10",
+      "rows": 1589928,
+      "stations": 2137,
+      "rows_with_nan_features": 0,
+      "pickups": 3716453.0,
+      "dropoffs": 3709897.0,
+      "mb": 26.9
+    },
+    {
+      "month": "2023-11",
+      "rows": 1528520,
+      "stations": 2120,
+      "rows_with_nan_features": 0,
+      "pickups": 2812206.0,
+      "dropoffs": 2806111.0,
+      "mb": 25.6
+    },
+    {
+      "month": "2023-12",
+      "rows": 1650192,
+      "stations": 2218,
+      "rows_with_nan_features": 0,
+      "pickups": 2201877.0,
+      "dropoffs": 2198306.0,
+      "mb": 23.8
+    }
+  ],
+  "total_rows": 31424795
+}

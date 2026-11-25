@@ -1,0 +1,56 @@
+# ============================================
+# Bike Rebalancing ML - Configuration (local, ~8 GB RAM)
+# ============================================
+
+# --- Paths ---
+raw_data_path: "e:/prj"           # Directory containing the year ZIP files
+processed_data_path: "data/processed"
+features_data_path: "data/features"
+models_path: "models"
+outputs_path: "outputs"
+temp_extract_path: "e:/prj/.tmp_extract"  # Scratch space for extracting monthly ZIPs
+
+# --- Time ---
+time_interval_minutes: 10        # Resolution of the cleaned data (preprocess stage)
+model_interval_minutes: 60       # Resolution the model predicts at (next hour per station)
+
+# --- Weather (Open-Meteo Archive API, free, no key) ---
+use_weather: true
+weather_data_path: "data/processed/weather_hourly.parquet"
+weather_lat: 40.7128            # NYC (Central Park area)
+weather_lng: -74.0060
+weather_start_date: "2022-01-01"
+weather_end_date: "2023-12-31"
+weather_timezone: "America/New_York"
+
+# --- Splitting (chronological over the 2 years) ---
+train_ratio: 0.70
+validation_ratio: 0.15
+test_ratio: 0.15
+
+# --- Station ---
+min_trips_per_month: 5           # Station active if >= this many trips in a month
+
+# --- Model ---
+random_seed: 42
+n_iter_search: 4                 # XGBoost hyperparameter configs tried per target
+n_iter_search_rf: 2              # Random Forest configs per target (slow)
+xgb_learning_rates: [0.1, 0.15]  # Faster convergence for a laptop run (Colab searches 0.05-0.1)
+train_random_forest: true
+max_train_rows: 1000000          # Rows sampled uniformly from ALL training months
+max_val_rows: 600000
+rf_max_rows: 300000              # Random Forest trains on a smaller sample
+
+# --- Surplus / deficit evaluation & rebalancing ---
+imbalance_threshold: 3           # |net flow| (bikes per 3-h block) counted as a real imbalance
+vehicle_capacity: 20
+num_vehicles: 15                 # Truck trips available per planning window
+max_route_distance_km: 3.0
+min_move_bikes: 3
+rebalance_windows:               # NYC local time planning windows
+  - ["07:00", "10:00"]
+  - ["16:00", "19:00"]
+
+# --- Processing ---
+chunk_size: 100000               # Rows per chunk when reading CSVs
+months_filter: null              # null = use all 24 months

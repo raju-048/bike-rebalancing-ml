@@ -1,0 +1,67 @@
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ─── Virtual environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─── Testing / coverage ───────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ─── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_metadata
+
+# ─── Environment / secrets ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── Large data files (not committed — regenerate by running the pipeline) ────
+*.zip
+*.parquet
+*.csv
+*.xlsx
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# ─── Temporary extraction scratch space ───────────────────────────────────────
+.tmp_extract/
+*.log
+
+# ─── Trained model artefacts ─────────────────────────────────────────────────
+models/
+
+# ─── Pipeline-generated predictions (large) ──────────────────────────────────
+outputs/predictions/
+
+# ─── Internal / personal files ───────────────────────────────────────────────
+PROJECT_PLAN.md
+PROJECT_PLAN_SIMPLE.md
+UG_project_template.docx
+Thesis_Template__IIT__ISM__Dhanbad__3_.zip
+_audit_parquet.py
+_make_zip.py
+check_status.py
+colab_patch.py
+plot_weather_demand.py
+report.zip
+bike_pipeline.zip
+
+# ─── IDE / OS ─────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

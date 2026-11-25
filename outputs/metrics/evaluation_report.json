@@ -1,0 +1,748 @@
+{
+  "split_dates": {
+    "train_start": "2022-01-01 05:00:00",
+    "train_end": "2023-05-27 04:00:00",
+    "val_end": "2023-09-13 04:00:00",
+    "test_end": "2024-01-01 04:00:00",
+    "note": "UTC-naive; train < train_end <= val < val_end <= test"
+  },
+  "best_model": {
+    "pickups": "XGBoost",
+    "dropoffs": "XGBoost"
+  },
+  "test_metrics": {
+    "pickups": {
+      "Baseline": {
+        "n": 5666768,
+        "mae": 1.2695,
+        "rmse": 2.6218,
+        "r2": 0.5807,
+        "mean_actual": 1.8897,
+        "mean_pred": 2.0697,
+        "rmsle": 0.5529
+      },
+      "RandomForest": {
+        "n": 5666768,
+        "mae": 0.9797,
+        "rmse": 1.8825,
+        "r2": 0.7838,
+        "mean_actual": 1.8897,
+        "mean_pred": 1.9054,
+        "rmsle": 0.4354
+      },
+      "XGBoost": {
+        "n": 5666768,
+        "mae": 0.9166,
+        "rmse": 1.8269,
+        "r2": 0.7964,
+        "mean_actual": 1.8897,
+        "mean_pred": 1.7209,
+        "rmsle": 0.417
+      },
+      "XGBoost (no weather)": {
+        "n": 5666768,
+        "mae": 0.9444,
+        "rmse": 1.8634,
+        "r2": 0.7882,
+        "mean_actual": 1.8897,
+        "mean_pred": 1.7617,
+        "rmsle": 0.424
+      },
+      "_best_breakdown": {
+        "model": "XGBoost",
+        "by_hour": {
+          "0": {
+            "n": 236027,
+            "mae": 0.514,
+            "rmse": 1.0165,
+            "r2": 0.503,
+            "mean_actual": 0.6334,
+            "mean_pred": 0.5222,
+            "rmsle": 0.3838
+          },
+          "1": {
+            "n": 238147,
+            "mae": 0.3694,
+            "rmse": 0.8151,
+            "r2": 0.4338,
+            "mean_actual": 0.3905,
+            "mean_pred": 0.312,
+            "rmsle": 0.3363
+          },
+          "2": {
+            "n": 236027,
+            "mae": 0.2613,
+            "rmse": 0.6391,
+            "r2": 0.3901,
+            "mean_actual": 0.2551,
+            "mean_pred": 0.188,
+            "rmsle": 0.2839
+          },
+          "3": {
+            "n": 236027,
+            "mae": 0.1919,
+            "rmse": 0.5347,
+            "r2": 0.2878,
+            "mean_actual": 0.1712,
+            "mean_pred": 0.1148,
+            "rmsle": 0.2481
+          },
+          "4": {
+            "n": 236027,
+            "mae": 0.1869,
+            "rmse": 0.491,
+            "r2": 0.1737,
+            "mean_actual": 0.1525,
+            "mean_pred": 0.1047,
+            "rmsle": 0.2438
+          },
+          "5": {
+            "n": 236027,
+            "mae": 0.3071,
+            "rmse": 0.7795,
+            "r2": 0.4976,
+            "mean_actual": 0.3193,
+            "mean_pred": 0.2526,
+            "rmsle": 0.299
+          },
+          "6": {
+            "n": 236027,
+            "mae": 0.5751,
+            "rmse": 1.1388,
+            "r2": 0.6615,
+            "mean_actual": 0.8672,
+            "mean_pred": 0.7543,
+            "rmsle": 0.3807
+          },
+          "7": {
+            "n": 236027,
+            "mae": 0.9721,
+            "rmse": 1.7778,
+            "r2": 0.7544,
+            "mean_actual": 1.9374,
+            "mean_pred": 1.7092,
+            "rmsle": 0.4403
+          },
+          "8": {
+            "n": 236027,
+            "mae": 1.2414,
+            "rmse": 2.3292,
+            "r2": 0.8122,
+            "mean_actual": 2.9341,
+            "mean_pred": 2.5676,
+            "rmsle": 0.4466
+          },
+          "9": {
+            "n": 236027,
+            "mae": 1.099,
+            "rmse": 1.9431,
+            "r2": 0.7773,
+            "mean_actual": 2.3944,
+            "mean_pred": 2.2021,
+            "rmsle": 0.4437
+          },
+          "10": {
+            "n": 236027,
+            "mae": 1.0423,
+            "rmse": 1.8247,
+            "r2": 0.7084,
+            "mean_actual": 2.0553,
+            "mean_pred": 1.8968,
+            "rmsle": 0.4486
+          },
+          "11": {
+            "n": 236027,
+            "mae": 1.0969,
+            "rmse": 1.9252,
+            "r2": 0.7208,
+            "mean_actual": 2.2064,
+            "mean_pred": 2.0403,
+            "rmsle": 0.4519
+          },
+          "12": {
+            "n": 236027,
+            "mae": 1.1801,
+            "rmse": 2.0866,
+            "r2": 0.7507,
+            "mean_actual": 2.5125,
+            "mean_pred": 2.2999,
+            "rmsle": 0.4548
+          },
+          "13": {
+            "n": 236027,
+            "mae": 1.2259,
+            "rmse": 2.1264,
+            "r2": 0.7635,
+            "mean_actual": 2.634,
+            "mean_pred": 2.4983,
+            "rmsle": 0.4636
+          },
+          "14": {
+            "n": 236027,
+            "mae": 1.3072,
+            "rmse": 2.2398,
+            "r2": 0.7721,
+            "mean_actual": 2.9136,
+            "mean_pred": 2.7291,
+            "rmsle": 0.472
+          },
+          "15": {
+            "n": 236027,
+            "mae": 1.3766,
+            "rmse": 2.377,
+            "r2": 0.7843,
+            "mean_actual": 3.2097,
+            "mean_pred": 2.9404,
+            "rmsle": 0.4715
+          },
+          "16": {
+            "n": 236027,
+            "mae": 1.4269,
+            "rmse": 2.5164,
+            "r2": 0.8082,
+            "mean_actual": 3.5031,
+            "mean_pred": 3.267,
+            "rmsle": 0.4657
+          },
+          "17": {
+            "n": 236027,
+            "mae": 1.5986,
+            "rmse": 3.0933,
+            "r2": 0.8252,
+            "mean_actual": 4.0729,
+            "mean_pred": 3.7291,
+            "rmsle": 0.4673
+          },
+          "18": {
+            "n": 236027,
+            "mae": 1.4529,
+            "rmse": 2.6552,
+            "r2": 0.8371,
+            "mean_actual": 3.7386,
+            "mean_pred": 3.4963,
+            "rmsle": 0.4592
+          },
+          "19": {
+            "n": 236027,
+            "mae": 1.208,
+            "rmse": 2.1095,
+            "r2": 0.7988,
+            "mean_actual": 2.7636,
+            "mean_pred": 2.545,
+            "rmsle": 0.4529
+          },
+          "20": {
+            "n": 236027,
+            "mae": 1.014,
+            "rmse": 1.772,
+            "r2": 0.7312,
+            "mean_actual": 1.9638,
+            "mean_pred": 1.7902,
+            "rmsle": 0.4503
+          },
+          "21": {
+            "n": 236027,
+            "mae": 0.8852,
+            "rmse": 1.5765,
+            "r2": 0.6751,
+            "mean_actual": 1.5335,
+            "mean_pred": 1.3729,
+            "rmsle": 0.4421
+          },
+          "22": {
+            "n": 236027,
+            "mae": 0.799,
+            "rmse": 1.4527,
+            "r2": 0.6187,
+            "mean_actual": 1.2521,
+            "mean_pred": 1.1292,
+            "rmsle": 0.4372
+          },
+          "23": {
+            "n": 236027,
+            "mae": 0.6713,
+            "rmse": 1.23,
+            "r2": 0.5736,
+            "mean_actual": 0.9527,
+            "mean_pred": 0.8513,
+            "rmsle": 0.4177
+          }
+        },
+        "by_daytype": {
+          "weekday": {
+            "n": 4014216,
+            "mae": 0.9376,
+            "rmse": 1.8669,
+            "r2": 0.8074,
+            "mean_actual": 2.0154,
+            "mean_pred": 1.8508,
+            "rmsle": 0.4131
+          },
+          "weekend": {
+            "n": 1652552,
+            "mae": 0.8655,
+            "rmse": 1.726,
+            "r2": 0.7546,
+            "mean_actual": 1.5846,
+            "mean_pred": 1.4051,
+            "rmsle": 0.4262
+          }
+        },
+        "by_rain": {
+          "dry": {
+            "n": 4780671,
+            "mae": 0.9488,
+            "rmse": 1.877,
+            "r2": 0.804,
+            "mean_actual": 2.0228,
+            "mean_pred": 1.8529,
+            "rmsle": 0.4165
+          },
+          "rainy": {
+            "n": 886097,
+            "mae": 0.7429,
+            "rmse": 1.5284,
+            "r2": 0.6776,
+            "mean_actual": 1.1718,
+            "mean_pred": 1.0086,
+            "rmsle": 0.4195
+          }
+        },
+        "by_temperature": {
+          "< 0\u00b0C": {
+            "n": 424376,
+            "mae": 0.5667,
+            "rmse": 1.205,
+            "r2": 0.7859,
+            "mean_actual": 1.0206,
+            "mean_pred": 0.9037,
+            "rmsle": 0.3559
+          },
+          "0\u201310\u00b0C": {
+            "n": 2512423,
+            "mae": 0.7709,
+            "rmse": 1.5121,
+            "r2": 0.7717,
+            "mean_actual": 1.4524,
+            "mean_pred": 1.3452,
+            "rmsle": 0.4015
+          },
+          "10\u201320\u00b0C": {
+            "n": 2325250,
+            "mae": 1.0107,
+            "rmse": 1.9641,
+            "r2": 0.7867,
+            "mean_actual": 2.099,
+            "mean_pred": 1.9059,
+            "rmsle": 0.4338
+          },
+          "20\u201327\u00b0C": {
+            "n": 391897,
+            "mae": 1.6441,
+            "rmse": 2.971,
+            "r2": 0.8176,
+            "mean_actual": 4.3104,
+            "mean_pred": 3.859,
+            "rmsle": 0.4685
+          },
+          "> 27\u00b0C": {
+            "n": 12822,
+            "mae": 1.745,
+            "rmse": 3.1031,
+            "r2": 0.7787,
+            "mean_actual": 4.4133,
+            "mean_pred": 3.4689,
+            "rmsle": 0.4811
+          }
+        }
+      }
+    },
+    "dropoffs": {
+      "Baseline": {
+        "n": 5666768,
+        "mae": 1.2716,
+        "rmse": 2.6754,
+        "r2": 0.5805,
+        "mean_actual": 1.8859,
+        "mean_pred": 2.0662,
+        "rmsle": 0.5534
+      },
+      "RandomForest": {
+        "n": 5666768,
+        "mae": 0.9926,
+        "rmse": 1.9312,
+        "r2": 0.7814,
+        "mean_actual": 1.8859,
+        "mean_pred": 1.9007,
+        "rmsle": 0.4393
+      },
+      "XGBoost": {
+        "n": 5666768,
+        "mae": 0.9315,
+        "rmse": 1.8668,
+        "r2": 0.7957,
+        "mean_actual": 1.8859,
+        "mean_pred": 1.7564,
+        "rmsle": 0.4181
+      },
+      "XGBoost (no weather)": {
+        "n": 5666768,
+        "mae": 0.9593,
+        "rmse": 1.9509,
+        "r2": 0.7769,
+        "mean_actual": 1.8859,
+        "mean_pred": 1.7093,
+        "rmsle": 0.4286
+      },
+      "_best_breakdown": {
+        "model": "XGBoost",
+        "by_hour": {
+          "0": {
+            "n": 236027,
+            "mae": 0.5746,
+            "rmse": 1.0076,
+            "r2": 0.4795,
+            "mean_actual": 0.6921,
+            "mean_pred": 0.6137,
+            "rmsle": 0.4037
+          },
+          "1": {
+            "n": 238147,
+            "mae": 0.4228,
+            "rmse": 0.8139,
+            "r2": 0.4139,
+            "mean_actual": 0.4302,
+            "mean_pred": 0.3852,
+            "rmsle": 0.3527
+          },
+          "2": {
+            "n": 236027,
+            "mae": 0.3095,
+            "rmse": 0.6545,
+            "r2": 0.3448,
+            "mean_actual": 0.2799,
+            "mean_pred": 0.2462,
+            "rmsle": 0.304
+          },
+          "3": {
+            "n": 236027,
+            "mae": 0.2247,
+            "rmse": 0.5452,
+            "r2": 0.2499,
+            "mean_actual": 0.1851,
+            "mean_pred": 0.149,
+            "rmsle": 0.2611
+          },
+          "4": {
+            "n": 236027,
+            "mae": 0.1987,
+            "rmse": 0.5048,
+            "r2": 0.172,
+            "mean_actual": 0.1543,
+            "mean_pred": 0.1183,
+            "rmsle": 0.2446
+          },
+          "5": {
+            "n": 236027,
+            "mae": 0.2737,
+            "rmse": 0.643,
+            "r2": 0.4701,
+            "mean_actual": 0.279,
+            "mean_pred": 0.2368,
+            "rmsle": 0.2787
+          },
+          "6": {
+            "n": 236027,
+            "mae": 0.5084,
+            "rmse": 1.2182,
+            "r2": 0.723,
+            "mean_actual": 0.7493,
+            "mean_pred": 0.6732,
+            "rmsle": 0.3527
+          },
+          "7": {
+            "n": 236027,
+            "mae": 0.8913,
+            "rmse": 1.8575,
+            "r2": 0.7734,
+            "mean_actual": 1.6945,
+            "mean_pred": 1.5361,
+            "rmsle": 0.4204
+          },
+          "8": {
+            "n": 236027,
+            "mae": 1.2273,
+            "rmse": 2.638,
+            "r2": 0.8158,
+            "mean_actual": 2.8156,
+            "mean_pred": 2.5114,
+            "rmsle": 0.44
+          },
+          "9": {
+            "n": 236027,
+            "mae": 1.156,
+            "rmse": 2.3437,
+            "r2": 0.7951,
+            "mean_actual": 2.501,
+            "mean_pred": 2.2894,
+            "rmsle": 0.4374
+          },
+          "10": {
+            "n": 236027,
+            "mae": 1.0411,
+            "rmse": 1.9006,
+            "r2": 0.7308,
+            "mean_actual": 2.0391,
+            "mean_pred": 1.9052,
+            "rmsle": 0.4372
+          },
+          "11": {
+            "n": 236027,
+            "mae": 1.0732,
+            "rmse": 1.9289,
+            "r2": 0.729,
+            "mean_actual": 2.1202,
+            "mean_pred": 2.0009,
+            "rmsle": 0.4439
+          },
+          "12": {
+            "n": 236027,
+            "mae": 1.164,
+            "rmse": 2.0923,
+            "r2": 0.7534,
+            "mean_actual": 2.4465,
+            "mean_pred": 2.2869,
+            "rmsle": 0.45
+          },
+          "13": {
+            "n": 236027,
+            "mae": 1.2209,
+            "rmse": 2.1496,
+            "r2": 0.7637,
+            "mean_actual": 2.5904,
+            "mean_pred": 2.5004,
+            "rmsle": 0.4591
+          },
+          "14": {
+            "n": 236027,
+            "mae": 1.2922,
+            "rmse": 2.258,
+            "r2": 0.7656,
+            "mean_actual": 2.8206,
+            "mean_pred": 2.6785,
+            "rmsle": 0.4675
+          },
+          "15": {
+            "n": 236027,
+            "mae": 1.3752,
+            "rmse": 2.3837,
+            "r2": 0.7808,
+            "mean_actual": 3.1505,
+            "mean_pred": 2.9474,
+            "rmsle": 0.4723
+          },
+          "16": {
+            "n": 236027,
+            "mae": 1.434,
+            "rmse": 2.4727,
+            "r2": 0.7984,
+            "mean_actual": 3.4332,
+            "mean_pred": 3.2639,
+            "rmsle": 0.4713
+          },
+          "17": {
+            "n": 236027,
+            "mae": 1.5736,
+            "rmse": 2.8471,
+            "r2": 0.8238,
+            "mean_actual": 4.0115,
+            "mean_pred": 3.7312,
+            "rmsle": 0.4673
+          },
+          "18": {
+            "n": 236027,
+            "mae": 1.5221,
+            "rmse": 2.7266,
+            "r2": 0.8323,
+            "mean_actual": 3.8907,
+            "mean_pred": 3.6726,
+            "rmsle": 0.4651
+          },
+          "19": {
+            "n": 236027,
+            "mae": 1.3056,
+            "rmse": 2.2566,
+            "r2": 0.7924,
+            "mean_actual": 2.9801,
+            "mean_pred": 2.8023,
+            "rmsle": 0.4635
+          },
+          "20": {
+            "n": 236027,
+            "mae": 1.0871,
+            "rmse": 1.8587,
+            "r2": 0.7192,
+            "mean_actual": 2.0969,
+            "mean_pred": 1.9812,
+            "rmsle": 0.4634
+          },
+          "21": {
+            "n": 236027,
+            "mae": 0.9281,
+            "rmse": 1.5599,
+            "r2": 0.665,
+            "mean_actual": 1.593,
+            "mean_pred": 1.4816,
+            "rmsle": 0.4541
+          },
+          "22": {
+            "n": 236027,
+            "mae": 0.8356,
+            "rmse": 1.4022,
+            "r2": 0.6129,
+            "mean_actual": 1.3047,
+            "mean_pred": 1.2193,
+            "rmsle": 0.4481
+          },
+          "23": {
+            "n": 236027,
+            "mae": 0.7215,
+            "rmse": 1.2234,
+            "r2": 0.5527,
+            "mean_actual": 1.0158,
+            "mean_pred": 0.9343,
+            "rmsle": 0.4327
+          }
+        },
+        "by_daytype": {
+          "weekday": {
+            "n": 4014216,
+            "mae": 0.9509,
+            "rmse": 1.9055,
+            "r2": 0.8079,
+            "mean_actual": 2.01,
+            "mean_pred": 1.8876,
+            "rmsle": 0.4139
+          },
+          "weekend": {
+            "n": 1652552,
+            "mae": 0.8846,
+            "rmse": 1.7695,
+            "r2": 0.7488,
+            "mean_actual": 1.5844,
+            "mean_pred": 1.4375,
+            "rmsle": 0.4281
+          }
+        },
+        "by_rain": {
+          "dry": {
+            "n": 4780671,
+            "mae": 0.9673,
+            "rmse": 1.9219,
+            "r2": 0.8025,
+            "mean_actual": 2.0209,
+            "mean_pred": 1.8872,
+            "rmsle": 0.419
+          },
+          "rainy": {
+            "n": 886097,
+            "mae": 0.7384,
+            "rmse": 1.5359,
+            "r2": 0.6877,
+            "mean_actual": 1.1572,
+            "mean_pred": 1.0504,
+            "rmsle": 0.4128
+          }
+        },
+        "by_temperature": {
+          "< 0\u00b0C": {
+            "n": 424376,
+            "mae": 0.5623,
+            "rmse": 1.2881,
+            "r2": 0.7994,
+            "mean_actual": 0.9866,
+            "mean_pred": 0.9167,
+            "rmsle": 0.3499
+          },
+          "0\u201310\u00b0C": {
+            "n": 2512423,
+            "mae": 0.7863,
+            "rmse": 1.5522,
+            "r2": 0.7735,
+            "mean_actual": 1.4494,
+            "mean_pred": 1.3736,
+            "rmsle": 0.4044
+          },
+          "10\u201320\u00b0C": {
+            "n": 2325250,
+            "mae": 1.0315,
+            "rmse": 2.0092,
+            "r2": 0.7879,
+            "mean_actual": 2.1106,
+            "mean_pred": 1.9656,
+            "rmsle": 0.4354
+          },
+          "20\u201327\u00b0C": {
+            "n": 391897,
+            "mae": 1.6459,
+            "rmse": 2.9848,
+            "r2": 0.8107,
+            "mean_actual": 4.2471,
+            "mean_pred": 3.8164,
+            "rmsle": 0.4633
+          },
+          "> 27\u00b0C": {
+            "n": 12822,
+            "mae": 1.6436,
+            "rmse": 2.9758,
+            "r2": 0.7928,
+            "mean_actual": 4.2566,
+            "mean_pred": 3.6402,
+            "rmsle": 0.4601
+          }
+        }
+      }
+    }
+  },
+  "net_flow_evaluation": {
+    "blocks": 1888216,
+    "material_blocks": 477127,
+    "threshold_bikes": 3.0,
+    "hourly_net_flow_model": {
+      "n": 5666768,
+      "mae": 1.0504,
+      "rmse": 2.0241,
+      "r2": 0.3402,
+      "mean_actual": -0.0039,
+      "mean_pred": -0.0139
+    },
+    "net_flow_model": {
+      "net_flow_mae": 1.928,
+      "net_flow_mae_material": 5.0691,
+      "direction_accuracy_material": 0.719,
+      "deficit_recall": 0.4065,
+      "surplus_recall": 0.3679,
+      "deficit_precision": 0.8186,
+      "surplus_precision": 0.7765
+    },
+    "pickup_dropoff_models": {
+      "net_flow_mae": 1.984,
+      "net_flow_mae_material": 5.0752,
+      "direction_accuracy_material": 0.7148,
+      "deficit_recall": 0.4199,
+      "surplus_recall": 0.4402,
+      "deficit_precision": 0.7637,
+      "surplus_precision": 0.7148
+    },
+    "baseline": {
+      "net_flow_mae": 2.2073,
+      "net_flow_mae_material": 4.9877,
+      "direction_accuracy_material": 0.7279,
+      "deficit_recall": 0.5475,
+      "surplus_recall": 0.5351,
+      "deficit_precision": 0.646,
+      "surplus_precision": 0.6256
+    }
+  },
+  "predictions_path": "outputs\\predictions\\test_predictions.parquet"
+}

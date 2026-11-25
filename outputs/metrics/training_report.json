@@ -1,0 +1,667 @@
+{
+  "split_dates": {
+    "train_start": "2022-01-01 05:00:00",
+    "train_end": "2023-05-27 04:00:00",
+    "val_end": "2023-09-13 04:00:00",
+    "test_end": "2024-01-01 04:00:00",
+    "note": "UTC-naive; train < train_end <= val < val_end <= test"
+  },
+  "train_rows": 986599,
+  "val_rows": 600070,
+  "feature_cols": [
+    "cos_dow",
+    "cos_doy",
+    "cos_hour",
+    "day_of_week",
+    "dropoff_how_mean_4w",
+    "dropoff_lag_1",
+    "dropoff_lag_1d",
+    "dropoff_lag_1w",
+    "dropoff_lag_2",
+    "dropoff_lag_3",
+    "dropoff_mean_24h",
+    "dropoff_mean_28d",
+    "dropoff_mean_3h",
+    "hour",
+    "humidity",
+    "is_holiday",
+    "is_rainy",
+    "is_weekend",
+    "is_workday",
+    "lat",
+    "lng",
+    "month",
+    "net_lag_1",
+    "net_mean_24h",
+    "pickup_how_mean_4w",
+    "pickup_lag_1",
+    "pickup_lag_1d",
+    "pickup_lag_1w",
+    "pickup_lag_2",
+    "pickup_lag_3",
+    "pickup_mean_24h",
+    "pickup_mean_28d",
+    "pickup_mean_3h",
+    "precip_prev_3h",
+    "precipitation",
+    "sin_dow",
+    "sin_doy",
+    "sin_hour",
+    "temperature",
+    "weather_code",
+    "wind_speed"
+  ],
+  "weather_cols": [
+    "temperature",
+    "humidity",
+    "precipitation",
+    "wind_speed",
+    "weather_code",
+    "is_rainy",
+    "precip_prev_3h"
+  ],
+  "models": {
+    "pickups": {
+      "Baseline": {
+        "val_metrics": {
+          "mae": 1.3895,
+          "rmse": 2.619,
+          "r2": 0.6787,
+          "rmsle": 0.5444
+        },
+        "key": "baseline"
+      },
+      "RandomForest": {
+        "val_metrics": {
+          "mae": 1.2105,
+          "rmse": 2.158,
+          "r2": 0.7818,
+          "rmsle": 0.4672
+        },
+        "best_params": {
+          "n_estimators": 150,
+          "min_samples_leaf": 20,
+          "max_features": 0.5,
+          "max_depth": null
+        },
+        "search": [
+          {
+            "params": {
+              "n_estimators": 150,
+              "min_samples_leaf": 20,
+              "max_features": 0.5,
+              "max_depth": null
+            },
+            "val_metrics": {
+              "mae": 1.2105,
+              "rmse": 2.158,
+              "r2": 0.7818,
+              "rmsle": 0.4672
+            },
+            "train_time_s": 285.2
+          },
+          {
+            "params": {
+              "n_estimators": 150,
+              "min_samples_leaf": 5,
+              "max_features": 0.33,
+              "max_depth": 24
+            },
+            "val_metrics": {
+              "mae": 1.2106,
+              "rmse": 2.1425,
+              "r2": 0.785,
+              "rmsle": 0.469
+            },
+            "train_time_s": 216.4
+          }
+        ],
+        "train_rows": 300000,
+        "model_path": "models\\rf_pickups.joblib",
+        "key": "rf",
+        "train_time_s": 515.5
+      },
+      "XGBoost": {
+        "val_metrics": {
+          "mae": 1.1609,
+          "rmse": 2.115,
+          "r2": 0.7904,
+          "rmsle": 0.4544
+        },
+        "best_params": {
+          "subsample": 0.8,
+          "reg_lambda": 5.0,
+          "objective": "reg:tweedie",
+          "min_child_weight": 20,
+          "max_depth": 10,
+          "learning_rate": 0.1,
+          "colsample_bytree": 0.7
+        },
+        "search": [
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:tweedie",
+              "min_child_weight": 20,
+              "max_depth": 10,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.7
+            },
+            "val_metrics": {
+              "mae": 1.1609,
+              "rmse": 2.115,
+              "r2": 0.7904,
+              "rmsle": 0.4544
+            },
+            "train_time_s": 481.7,
+            "best_iteration": 926
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 1.0,
+              "objective": "count:poisson",
+              "min_child_weight": 20,
+              "max_depth": 6,
+              "learning_rate": 0.15,
+              "colsample_bytree": 0.9
+            },
+            "val_metrics": {
+              "mae": 1.1767,
+              "rmse": 2.0849,
+              "r2": 0.7964,
+              "rmsle": 0.4575
+            },
+            "train_time_s": 265.5,
+            "best_iteration": 492
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:tweedie",
+              "min_child_weight": 5,
+              "max_depth": 8,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.9
+            },
+            "val_metrics": {
+              "mae": 1.1649,
+              "rmse": 2.1079,
+              "r2": 0.7918,
+              "rmsle": 0.4551
+            },
+            "train_time_s": 538.2,
+            "best_iteration": 986
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:squarederror",
+              "min_child_weight": 20,
+              "max_depth": 10,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.7
+            },
+            "val_metrics": {
+              "mae": 1.184,
+              "rmse": 2.0873,
+              "r2": 0.7959,
+              "rmsle": 0.4614
+            },
+            "train_time_s": 133.3,
+            "best_iteration": 179
+          }
+        ],
+        "best_iteration": 926,
+        "model_path": "models\\xgb_pickups.joblib",
+        "key": "xgb",
+        "train_time_s": 1439.5
+      },
+      "XGBoost (no weather)": {
+        "val_metrics": {
+          "mae": 1.1685,
+          "rmse": 2.0972,
+          "r2": 0.7939,
+          "rmsle": 0.4555
+        },
+        "best_params": {
+          "subsample": 0.8,
+          "reg_lambda": 5.0,
+          "objective": "reg:tweedie",
+          "min_child_weight": 20,
+          "max_depth": 10,
+          "learning_rate": 0.1,
+          "colsample_bytree": 0.7
+        },
+        "model_path": "models\\xgb_noweather_pickups.joblib",
+        "key": "xgb_noweather",
+        "selectable": false
+      }
+    },
+    "dropoffs": {
+      "Baseline": {
+        "val_metrics": {
+          "mae": 1.3879,
+          "rmse": 2.6591,
+          "r2": 0.6851,
+          "rmsle": 0.5456
+        },
+        "key": "baseline"
+      },
+      "RandomForest": {
+        "val_metrics": {
+          "mae": 1.2278,
+          "rmse": 2.2207,
+          "r2": 0.7804,
+          "rmsle": 0.4721
+        },
+        "best_params": {
+          "n_estimators": 150,
+          "min_samples_leaf": 20,
+          "max_features": 0.5,
+          "max_depth": null
+        },
+        "search": [
+          {
+            "params": {
+              "n_estimators": 150,
+              "min_samples_leaf": 20,
+              "max_features": 0.5,
+              "max_depth": null
+            },
+            "val_metrics": {
+              "mae": 1.2278,
+              "rmse": 2.2207,
+              "r2": 0.7804,
+              "rmsle": 0.4721
+            },
+            "train_time_s": 280.0
+          },
+          {
+            "params": {
+              "n_estimators": 150,
+              "min_samples_leaf": 5,
+              "max_features": 0.33,
+              "max_depth": 24
+            },
+            "val_metrics": {
+              "mae": 1.228,
+              "rmse": 2.2044,
+              "r2": 0.7836,
+              "rmsle": 0.4737
+            },
+            "train_time_s": 231.8
+          }
+        ],
+        "train_rows": 300000,
+        "model_path": "models\\rf_dropoffs.joblib",
+        "key": "rf",
+        "train_time_s": 528.1
+      },
+      "XGBoost": {
+        "val_metrics": {
+          "mae": 1.1762,
+          "rmse": 2.1579,
+          "r2": 0.7926,
+          "rmsle": 0.4558
+        },
+        "best_params": {
+          "subsample": 0.8,
+          "reg_lambda": 5.0,
+          "objective": "reg:tweedie",
+          "min_child_weight": 20,
+          "max_depth": 10,
+          "learning_rate": 0.1,
+          "colsample_bytree": 0.7
+        },
+        "search": [
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:tweedie",
+              "min_child_weight": 20,
+              "max_depth": 10,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.7
+            },
+            "val_metrics": {
+              "mae": 1.1762,
+              "rmse": 2.1579,
+              "r2": 0.7926,
+              "rmsle": 0.4558
+            },
+            "train_time_s": 332.9,
+            "best_iteration": 505
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 1.0,
+              "objective": "count:poisson",
+              "min_child_weight": 20,
+              "max_depth": 6,
+              "learning_rate": 0.15,
+              "colsample_bytree": 0.9
+            },
+            "val_metrics": {
+              "mae": 1.1881,
+              "rmse": 2.138,
+              "r2": 0.7964,
+              "rmsle": 0.4595
+            },
+            "train_time_s": 374.4,
+            "best_iteration": 607
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:tweedie",
+              "min_child_weight": 5,
+              "max_depth": 8,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.9
+            },
+            "val_metrics": {
+              "mae": 1.1766,
+              "rmse": 2.1541,
+              "r2": 0.7934,
+              "rmsle": 0.4566
+            },
+            "train_time_s": 416.6,
+            "best_iteration": 908
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:squarederror",
+              "min_child_weight": 20,
+              "max_depth": 10,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.7
+            },
+            "val_metrics": {
+              "mae": 1.1982,
+              "rmse": 2.1438,
+              "r2": 0.7953,
+              "rmsle": 0.4642
+            },
+            "train_time_s": 113.0,
+            "best_iteration": 214
+          }
+        ],
+        "best_iteration": 505,
+        "model_path": "models\\xgb_dropoffs.joblib",
+        "key": "xgb",
+        "train_time_s": 1243.6
+      },
+      "XGBoost (no weather)": {
+        "val_metrics": {
+          "mae": 1.1761,
+          "rmse": 2.165,
+          "r2": 0.7913,
+          "rmsle": 0.4572
+        },
+        "best_params": {
+          "subsample": 0.8,
+          "reg_lambda": 5.0,
+          "objective": "reg:tweedie",
+          "min_child_weight": 20,
+          "max_depth": 10,
+          "learning_rate": 0.1,
+          "colsample_bytree": 0.7
+        },
+        "model_path": "models\\xgb_noweather_dropoffs.joblib",
+        "key": "xgb_noweather",
+        "selectable": false
+      }
+    },
+    "net_flow": {
+      "Baseline": {
+        "val_metrics": {
+          "mae": 1.4552,
+          "rmse": 2.5196,
+          "r2": 0.1755,
+          "direction_accuracy": 0.5999,
+          "deficit_recall": 0.3935,
+          "surplus_recall": 0.3881
+        }
+      },
+      "Pickup/dropoff models (difference)": {
+        "val_metrics": {
+          "mae": 1.2991,
+          "rmse": 2.3199,
+          "r2": 0.301,
+          "direction_accuracy": 0.6854,
+          "deficit_recall": 0.3081,
+          "surplus_recall": 0.2992
+        }
+      },
+      "XGBoost net-flow model": {
+        "val_metrics": {
+          "mae": 1.272,
+          "rmse": 2.2918,
+          "r2": 0.3178,
+          "direction_accuracy": 0.6931,
+          "deficit_recall": 0.2687,
+          "surplus_recall": 0.237
+        },
+        "best_params": {
+          "subsample": 1.0,
+          "reg_lambda": 1.0,
+          "objective": "reg:pseudohubererror",
+          "min_child_weight": 20,
+          "max_depth": 8,
+          "learning_rate": 0.1,
+          "colsample_bytree": 0.7
+        },
+        "search": [
+          {
+            "params": {
+              "subsample": 1.0,
+              "reg_lambda": 1.0,
+              "objective": "reg:pseudohubererror",
+              "min_child_weight": 20,
+              "max_depth": 8,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.7
+            },
+            "val_metrics": {
+              "mae": 1.272,
+              "rmse": 2.2918,
+              "r2": 0.3178
+            },
+            "train_time_s": 135.2,
+            "best_iteration": 351
+          },
+          {
+            "params": {
+              "subsample": 1.0,
+              "reg_lambda": 1.0,
+              "objective": "reg:pseudohubererror",
+              "min_child_weight": 5,
+              "max_depth": 6,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.9
+            },
+            "val_metrics": {
+              "mae": 1.2734,
+              "rmse": 2.2936,
+              "r2": 0.3167
+            },
+            "train_time_s": 121.5,
+            "best_iteration": 305
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 1.0,
+              "objective": "reg:squarederror",
+              "min_child_weight": 20,
+              "max_depth": 8,
+              "learning_rate": 0.15,
+              "colsample_bytree": 0.9
+            },
+            "val_metrics": {
+              "mae": 1.2804,
+              "rmse": 2.3083,
+              "r2": 0.3079
+            },
+            "train_time_s": 33.7,
+            "best_iteration": 24
+          },
+          {
+            "params": {
+              "subsample": 0.8,
+              "reg_lambda": 5.0,
+              "objective": "reg:squarederror",
+              "min_child_weight": 20,
+              "max_depth": 8,
+              "learning_rate": 0.1,
+              "colsample_bytree": 0.7
+            },
+            "val_metrics": {
+              "mae": 1.2795,
+              "rmse": 2.3049,
+              "r2": 0.31
+            },
+            "train_time_s": 41.1,
+            "best_iteration": 42
+          }
+        ],
+        "model_path": "models\\xgb_net.joblib",
+        "best_iteration": 351,
+        "train_time_s": 334.3
+      }
+    }
+  },
+  "best_model": {
+    "pickups": {
+      "name": "XGBoost",
+      "key": "xgb",
+      "val_mae": 1.1609,
+      "model_path": "models\\xgb_pickups.joblib"
+    },
+    "dropoffs": {
+      "name": "XGBoost",
+      "key": "xgb",
+      "val_mae": 1.1762,
+      "model_path": "models\\xgb_dropoffs.joblib"
+    },
+    "net_flow": {
+      "name": "XGBoost net-flow model",
+      "key": "xgb_net",
+      "model_path": "models\\xgb_net.joblib",
+      "val_mae": 1.272
+    }
+  },
+  "weather_impact": {
+    "pickups": {
+      "val_mae_with_weather": 1.1609,
+      "val_mae_without_weather": 1.1685,
+      "mae_reduction_pct": 0.65,
+      "rainy_hours_mae_with": 1.2978,
+      "rainy_hours_mae_without": 1.3283
+    },
+    "dropoffs": {
+      "val_mae_with_weather": 1.1762,
+      "val_mae_without_weather": 1.1761,
+      "mae_reduction_pct": -0.01,
+      "rainy_hours_mae_with": 1.3019,
+      "rainy_hours_mae_without": 1.3224
+    }
+  },
+  "feature_importance": {
+    "pickups": {
+      "pickup_how_mean_4w": 0.43041,
+      "pickup_lag_1": 0.12211,
+      "dropoff_how_mean_4w": 0.05846,
+      "dropoff_lag_1": 0.05425,
+      "pickup_lag_1d": 0.03641,
+      "pickup_mean_3h": 0.03259,
+      "dropoff_mean_3h": 0.02601,
+      "pickup_mean_24h": 0.01507,
+      "is_workday": 0.01362,
+      "cos_hour": 0.01329,
+      "is_rainy": 0.01288,
+      "hour": 0.01224,
+      "pickup_lag_1w": 0.01039,
+      "dropoff_mean_24h": 0.00969,
+      "precipitation": 0.00922,
+      "is_holiday": 0.00783,
+      "sin_hour": 0.00766,
+      "is_weekend": 0.00759,
+      "pickup_mean_28d": 0.00746,
+      "net_lag_1": 0.00705,
+      "weather_code": 0.00607,
+      "net_mean_24h": 0.00597,
+      "day_of_week": 0.00579,
+      "month": 0.0057,
+      "dropoff_lag_2": 0.00562,
+      "precip_prev_3h": 0.00551,
+      "sin_dow": 0.00542,
+      "temperature": 0.00535,
+      "dropoff_mean_28d": 0.00533,
+      "sin_doy": 0.0052,
+      "lat": 0.00516,
+      "cos_doy": 0.00514,
+      "lng": 0.0051,
+      "cos_dow": 0.00497,
+      "humidity": 0.00492,
+      "wind_speed": 0.00478,
+      "pickup_lag_2": 0.00438,
+      "dropoff_lag_1d": 0.00431,
+      "dropoff_lag_3": 0.00382,
+      "pickup_lag_3": 0.00379,
+      "dropoff_lag_1w": 0.00345
+    },
+    "dropoffs": {
+      "dropoff_how_mean_4w": 0.43126,
+      "dropoff_lag_1": 0.10612,
+      "pickup_how_mean_4w": 0.09857,
+      "dropoff_mean_3h": 0.05948,
+      "pickup_lag_1": 0.03862,
+      "dropoff_lag_1d": 0.03304,
+      "pickup_mean_3h": 0.03131,
+      "dropoff_lag_1w": 0.01876,
+      "dropoff_mean_24h": 0.01369,
+      "hour": 0.01135,
+      "is_workday": 0.01013,
+      "is_rainy": 0.00909,
+      "pickup_mean_24h": 0.00902,
+      "cos_hour": 0.00865,
+      "precipitation": 0.00803,
+      "sin_hour": 0.00729,
+      "is_weekend": 0.00671,
+      "is_holiday": 0.00576,
+      "dropoff_mean_28d": 0.00574,
+      "weather_code": 0.00503,
+      "net_lag_1": 0.00474,
+      "day_of_week": 0.00469,
+      "precip_prev_3h": 0.00468,
+      "month": 0.00461,
+      "pickup_mean_28d": 0.00456,
+      "temperature": 0.00448,
+      "dropoff_lag_2": 0.00438,
+      "net_mean_24h": 0.00427,
+      "sin_dow": 0.00425,
+      "lng": 0.00411,
+      "lat": 0.004,
+      "cos_dow": 0.00397,
+      "cos_doy": 0.00393,
+      "sin_doy": 0.00391,
+      "humidity": 0.00381,
+      "wind_speed": 0.00373,
+      "pickup_lag_2": 0.00297,
+      "pickup_lag_1d": 0.00296,
+      "pickup_lag_1w": 0.0028,
+      "pickup_lag_3": 0.0028,
+      "dropoff_lag_3": 0.00273
+    }
+  }
+}
